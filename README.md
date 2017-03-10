@@ -8,4 +8,5 @@ Please checkout the [wiki](https://github.com/psadmin-io/psadmin-io-util/wiki).
 - [ ] Create compile scripts
 - [ ] Create deploy scripts
 - [ ] Create SRID setup scripts
+- [ ] Create PSEatCookies setup scripts
 - [ ] Create DPKs
