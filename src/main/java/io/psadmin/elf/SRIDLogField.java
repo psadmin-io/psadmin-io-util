@@ -7,7 +7,7 @@ import weblogic.servlet.logging.HttpAccountingInfo;
 public class SRIDLogField implements CustomELFLogger {
 	
 	public void logField(HttpAccountingInfo metrics, FormatStringBuffer buff) {
-		String srid = metrics.getAttribute("srid");
+		String srid = (String)metrics.getAttribute("srid");
 		buff.appendValueOrDash(srid);
 	}
 }

@@ -49,7 +49,7 @@ public class SRIDAttributeFilter implements Filter {
 		
 		// get srid from properties
 		if (prop != null) {	
-			srid = prop.getProperty("SRID"));
+			srid = prop.getProperty("SRID");
 		} else {
 			log("props not found",1);
 		}
