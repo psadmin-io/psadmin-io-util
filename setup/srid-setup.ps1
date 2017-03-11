@@ -14,16 +14,16 @@ Function Invoke-CmdScript([string] $script, [string] $parameters) {
 	Remove-Item $tempFile
 }
 
-# set environment variables
-# TODO - require these to be set vs. defaults?
-$Env:DPK_BASE="e:\psoft"
-$Env:PS_CUST_HOME="$Env:DPK_BASE\pt\ps_cust_home"
-$Env:PS_PIA_HOME="$Env:PS_CFG_HOME\webserv\peoplesoft" 
-$Env:WL_HOME="$Env:DPK_BASE\pt\bea\wlserver"
-$Env:WLSADMIN="system"
-$Env:WLSPASS="Passw0rd"
-$Env:WLSCONN="t3://localhost:8000"
-$Env:ELF_FIELDS="date time cs-method cs-uri sc-status cs-username cs(user-agent) s-ip c-ip time-taken bytes cs(X-Forwarded-For)"
+# validate environment variables
+#$Env:DPK_BASE="e:\psoft"
+#$Env:PS_CUST_HOME="$Env:DPK_BASE\pt\ps_cust_home"
+#$Env:PS_PIA_HOME="$Env:PS_CFG_HOME\webserv\peoplesoft" 
+#$Env:WL_HOME="$Env:DPK_BASE\pt\bea\wlserver"
+#$Env:WLSADMIN="system"
+#$Env:WLSPASS="Passw0rd"
+#$Env:WLSCONN="t3://localhost:8000"
+#$Env:ELF_FIELDS="date time cs-method cs-uri sc-status cs-username cs(user-agent) s-ip c-ip time-taken bytes cs(X-Forwarded-For)"
+#$Env:UTIL_DIR
 
 # add to olf.jar
 jar cf $Env:PS_PIA_HOME\lib\olf.jar $Env:PS_CUST_HOME\class\io\psadmin\elf\SRIDLogField.class
@@ -102,7 +102,7 @@ if (!$test) {
 
 # wlst access log setup
 Invoke-CmdScript "$Env:WL_HOME\server\bin\setWLSEnv.cmd"
-java weblogic.WLST srid-wlst.py $Env:WLSADMIN $Env:WLSPASS $Env:WLSCONN $Env:ELF_FIELDS
+java weblogic.WLST $Env:UTIL_DIR\setup\srid-wlst.py $Env:WLSADMIN $Env:WLSPASS $Env:WLSCONN $Env:ELF_FIELDS
 
 Write-Host "Deployment complete, restart PIA to take effect." 
 

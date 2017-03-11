@@ -14,13 +14,12 @@ Function Invoke-CmdScript([string] $script, [string] $parameters) {
 	Remove-Item $tempFile
 }
 
-# set environment variables
-# TODO - require these to be set vs. defaults?
-$Env:DPK_BASE="e:\psoft"
-$Env:PS_CUST_HOME="$Env:DPK_BASE\pt\ps_cust_home"
-$Env:PS_PIA_HOME="$Env:PS_CFG_HOME\webserv\peoplesoft" 
-$Env:WL_HOME="$Env:DPK_BASE\pt\bea\wlserver"
-$Env:UTIL_DIR="$Env:PS_CUST_HOME\sdk\psadmin-io-util"
+# validate environment variables
+#$Env:DPK_BASE 
+#$Env:PS_CUST_HOME
+#$Env:PS_PIA_HOME
+#$Env:WL_HOME
+#$Env:UTIL_DIR
 
 # compile
 Invoke-CmdScript "$Env:WL_HOME\server\bin\setWLSEnv.cmd"
