@@ -26,7 +26,7 @@ Function Invoke-CmdScript([string] $script, [string] $parameters) {
 #$Env:UTIL_DIR
 
 # add to olf.jar
-jar cf $Env:PS_PIA_HOME\lib\io-psadmin-elf.jar $Env:PS_CUST_HOME\class\io\psadmin\elf\SRIDLogField.class
+jar cf $Env:PS_PIA_HOME\lib\io-psadmin-util-elf.jar $Env:PS_CUST_HOME\class\SRIDLogField.class
 
 # copy classes
 Copy-Item $Env:PS_CUST_HOME\class\io  $Env:PS_PIA_HOME\applications\peoplesoft\PORTAL.war\WEB-INF\classes\io -Recurse -Force
