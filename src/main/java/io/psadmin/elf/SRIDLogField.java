@@ -1,4 +1,4 @@
-package io.psadmin.elf;
+package io.psadmin.elf
 
 import weblogic.servlet.logging.CustomELFLogger;
 import weblogic.servlet.logging.FormatStringBuffer;
