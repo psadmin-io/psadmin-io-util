@@ -25,8 +25,11 @@ Function Invoke-CmdScript([string] $script, [string] $parameters) {
 #$Env:ELF_FIELDS="date time cs-method cs-uri sc-status cs-username cs(user-agent) s-ip c-ip time-taken bytes cs(X-Forwarded-For)"
 #$Env:UTIL_DIR
 
-# add to olf.jar
-jar cf $Env:PS_PIA_HOME\lib\io-psadmin-util-elf.jar $Env:PS_CUST_HOME\class\SRIDLogField.class
+# add to WLS lib
+#jar cf $Env:PS_PIA_HOME\lib\io-psadmin-util-elf.jar $Env:PS_CUST_HOME\class\SRIDLogField.class
+Copy-Item $Env:PS_CUST_HOME\class\SRIDLogField.class $Env:PS_PIA_HOME\lib\SRIDLogField.class
+javac $Env:PS_PIA_HOME\lib\SRIDLogField.class
+jar cf $Env:PS_PIA_HOME\lib\psadmin-io-util-elf.jar $Env:PS_PIA_HOME\lib\SRIDLogField.class
 
 # copy classes
 Copy-Item $Env:PS_CUST_HOME\class\io  $Env:PS_PIA_HOME\applications\peoplesoft\PORTAL.war\WEB-INF\classes\io -Recurse -Force
