@@ -29,7 +29,7 @@ Function Invoke-CmdScript([string] $script, [string] $parameters) {
 #jar cf $Env:PS_PIA_HOME\lib\io-psadmin-util-elf.jar $Env:PS_CUST_HOME\class\SRIDLogField.class
 Copy-Item $Env:PS_CUST_HOME\sdk\psadmin-io-util\src\main\java\SRIDLogField.java $Env:PS_PIA_HOME\lib\SRIDLogField.java
 javac $Env:PS_PIA_HOME\lib\SRIDLogField.java
-jar cf $Env:PS_PIA_HOME\lib\olf.jar $Env:PS_PIA_HOME\lib\SRIDLogField.class
+jar cf $Env:PS_PIA_HOME\lib\olf.jar -C $Env:PS_PIA_HOME\lib SRIDLogField.class
 
 # copy classes
 Copy-Item $Env:PS_CUST_HOME\class\io  $Env:PS_PIA_HOME\applications\peoplesoft\PORTAL.war\WEB-INF\classes\io -Recurse -Force
