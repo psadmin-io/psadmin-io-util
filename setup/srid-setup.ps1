@@ -27,7 +27,7 @@ Function Invoke-CmdScript([string] $script, [string] $parameters) {
 
 # add to WLS lib
 #jar cf $Env:PS_PIA_HOME\lib\io-psadmin-util-elf.jar $Env:PS_CUST_HOME\class\SRIDLogField.class
-Copy-Item $Env:PS_CUST_HOME\sdk\psadmin-io-util\src\main\java\SRIDLogField.java $Env:PS_PIA_HOME\lib\SRIDLogField.java
+Copy-Item $Env:UTIL_DIR\src\main\java\SRIDLogField.java $Env:PS_PIA_HOME\lib\SRIDLogField.java
 javac $Env:PS_PIA_HOME\lib\SRIDLogField.java
 jar cf $Env:PS_PIA_HOME\lib\olf.jar -C $Env:PS_PIA_HOME\lib SRIDLogField.class
 
@@ -109,7 +109,7 @@ if (!$test) {
 }
 
 # wlst access log setup
-Invoke-CmdScript "$Env:WL_HOME\server\bin\setWLSEnv.cmd"
+Invoke-CmdScript "$Env:PS_PIA_HOME\bin\setEnv.cmd"
 java weblogic.WLST $Env:UTIL_DIR\setup\srid-wlst.py $Env:WLSADMIN $Env:WLSPASS $Env:WLSCONN $Env:ELF_FIELDS
 
 Write-Host "Deployment complete, restart PIA to take effect." 
