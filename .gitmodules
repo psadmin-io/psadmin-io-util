@@ -1,0 +1,3 @@
+[submodule ".gitpsoft"]
+	path = .gitpsoft
+	url = https://github.com/psadmin-io/ps-project-git.git
